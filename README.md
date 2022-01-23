@@ -1,4 +1,4 @@
-# now-playing: A website to show what I'm currently listening to on Spotify
+# now-playing: A website to show what I'm currently listening to on Spotify [![Run on Repl.it](https://repl.it/badge/github/connordennison/now-playing)](https://repl.it/github/connordennison/now-playing)
 
 ## ❓ How does it work?
 
