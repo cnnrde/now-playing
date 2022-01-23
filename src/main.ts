@@ -5,7 +5,6 @@ import SpotifyWebApi from 'spotify-web-api-node'
 import chalk from 'chalk'
 import loggerMiddleware from './loggerMiddleware'
 import { Server, Socket } from 'socket.io'
-import * as cors from 'cors'
 
 const spotifyApi = new SpotifyWebApi({
   clientId: process.env.SPOTIFY_CLIENT_ID,
@@ -29,6 +28,7 @@ spotifyApi.refreshAccessToken().then(
 )
 
 const app = express()
+app.use(loggerMiddleware)
 const server = http.createServer(app)
 const io = new Server(server, {
   path: '/io',
@@ -36,10 +36,8 @@ const io = new Server(server, {
     origin: '*',
   },
 })
-const conlist: Socket[] = []
-app.use(cors.default())
 
-app.use(loggerMiddleware)
+let conlist: Socket[] = []
 
 // @ts-ignore
 app.get('/', (req: Request, res: Response) => {
@@ -121,6 +119,6 @@ setInterval(function () {
   })
 }, 1000)
 
-server.listen(5000, () => {
-  console.log('Listening on port 5000')
+server.listen(3000, () => {
+  console.log('Listening on port 3000')
 })
