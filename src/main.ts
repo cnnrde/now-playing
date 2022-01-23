@@ -55,25 +55,6 @@ app.get('/', (req: Request, res: Response) => {
 })
 
 // @ts-ignore
-app.get('/raw', (req: Request, res: Response) => {
-  spotifyApi.getMyCurrentPlaybackState().then((data) => {
-    res.send(data)
-  })
-})
-
-// @ts-ignore
-app.get('/auth', (req: Request, res: Response) => {
-  res.redirect(
-    // @ts-expect-error
-    spotifyApi.createAuthorizeURL([
-      'user-read-private',
-      'user-read-playback-state',
-      'user-read-currently-playing',
-    ]),
-  )
-})
-
-// @ts-ignore
 app.get('/callback', (req: Request, res: Response) => {
   // @ts-ignore
   res.send(req.query.code)
