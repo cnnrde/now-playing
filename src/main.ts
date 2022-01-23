@@ -43,15 +43,7 @@ app.use(loggerMiddleware)
 
 // @ts-ignore
 app.get('/', (req: Request, res: Response) => {
-  spotifyApi.getMyCurrentPlaybackState().then((data) => {
-    // please ignore this it's horrible i know
-    if (!data.body.item) {
-      return res.render('index', {
-        failure: true,
-      })
-    }
-  })
-  return res.send('hello world')
+  return res.send("<style>body{background:black;color:#eee}</style>(●'◡'●)")
 })
 
 // @ts-ignore
