@@ -1,0 +1,8 @@
+.env
+node_modules
+.git
+
+# don't wanna publish dist as people should run it from source
+dist
+
+.parcel-cache
