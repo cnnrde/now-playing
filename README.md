@@ -10,7 +10,7 @@ The frontend is built with HTML, CSS and TS and is hosted separately to the back
 
 The server is easy to deploy, all you need is hardware to run it on, software to run it on.
 
-I'm too lazy to actually write docs on how you can use this, but I deploy it with PM2, nginx, and certbot running on a 1gb Linode.
+I'm too lazy to actually write docs on how you can use this, but I deploy it Replit (as I'm too lazy to maintain my linode instance)
 
 ## ⚙️ Contributing
 
