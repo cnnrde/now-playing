@@ -90,30 +90,30 @@ setInterval(function () {
 }, 1000)
 
 setInterval(function () {
-  conlist.forEach((socket) => {
-    spotifyApi.getMyCurrentPlaybackState().then((data) => {
-      if (!data.body.item) {
-        return
-      }
-      let info = {
-        // lol
-        device: data.body.device.name,
-        trackName: data.body.item.name,
-        trackUrl: data.body.item.external_urls.spotify,
-        // @ts-ignore
-        albumName: data.body.item.album.name,
-        // @ts-ignore
-        albumUrl: data.body.item.album.external_urls.spotify,
-        // @ts-ignore
-        albumImageUrl: data.body.item.album.images[0].url,
-        // @ts-ignore
-        artistName: data.body.item.artists[0].name,
-        // @ts-ignore
-        artistUrl: data.body.item.artists[0].external_urls.spotify,
-        trackProgress: data.body.progress_ms,
-        trackDuration: data.body.item.duration_ms,
-        playing: data.body.is_playing,
-      }
+  spotifyApi.getMyCurrentPlaybackState().then((data) => {
+    if (!data.body.item) {
+      return
+    }
+    let info = {
+      // lol
+      device: data.body.device.name,
+      trackName: data.body.item.name,
+      trackUrl: data.body.item.external_urls.spotify,
+      // @ts-ignore
+      albumName: data.body.item.album.name,
+      // @ts-ignore
+      albumUrl: data.body.item.album.external_urls.spotify,
+      // @ts-ignore
+      albumImageUrl: data.body.item.album.images[0].url,
+      // @ts-ignore
+      artistName: data.body.item.artists[0].name,
+      // @ts-ignore
+      artistUrl: data.body.item.artists[0].external_urls.spotify,
+      trackProgress: data.body.progress_ms,
+      trackDuration: data.body.item.duration_ms,
+      playing: data.body.is_playing,
+    }
+    conlist.forEach((socket) => {
       socket.emit('update', JSON.stringify(info))
     })
   })
